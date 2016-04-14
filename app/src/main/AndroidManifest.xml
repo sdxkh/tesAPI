@@ -1,0 +1,55 @@
+<?xml
+    version     = "1.0"
+    encoding    = "utf-8"?>
+
+<!-- AndroidManifest digunakan untuk inisialisasi semua Activity yang digunakan pada Aplikasi
+     kita -->
+<manifest
+    xmlns:android   = "http://schemas.android.com/apk/res/android"
+    package         = "com.example.android.myweatherapplication.app" >
+
+    <!-- user-permission diperlukan untuk membuat aplikasi kita dapat terhubung ke Internet -->
+    <uses-permission
+        android:name    = "android.permission.INTERNET" />
+
+    <!-- application menjelaskan icon dari apps kita, nama aplikasi kita, dan Activity apa saja
+         yang kita gunakan -->
+    <application
+        android:allowBackup = "true"
+        android:icon        = "@mipmap/ic_launcher"
+        android:label       = "@string/app_name"
+        android:theme       = "@style/AppTheme" >
+
+        <activity
+            android:name    = ".MainActivity"
+            android:label   = "@string/app_name" >
+            <intent-filter>
+                <action android:name    = "android.intent.action.MAIN" />
+
+                <category android:name  = "android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- DetailActivity merupakan salah satu Fragment yang ada di dalam MainActivity
+             sehingga perlu di memiliki parent -->
+        <activity
+            android:name                = ".DetailActivity"
+            android:label               = "@string/title_activity_detail"
+            android:parentActivityName  = ".MainActivity" >
+            <meta-data
+                android:name    = "android.support.PARENT_ACTIVITY"
+                android:value   = "com.example.android.myweatherapplication.app.MainActivity" />
+        </activity>
+
+        <activity
+            android:name                = ".SettingsActivity"
+            android:label               = "@string/title_activity_settings"
+            android:parentActivityName  = ".MainActivity" >
+            <meta-data
+                android:name    = "android.support.PARENT_ACTIVITY"
+                android:value   = "com.example.android.myweatherapplication.app.MainActivity" />
+        </activity>
+
+    </application>
+
+</manifest>
